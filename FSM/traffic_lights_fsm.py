@@ -32,10 +32,7 @@ def state_green_handler(cargo):
 def state_amber_handler(cargo):
     print("AMBER")
     cargo = cargo - 1
-    if cargo > 0:
-        return ("RED", cargo)
-    else:
-        return ("END", cargo)
+    return ("RED", cargo) if cargo > 0 else ("END", cargo)
 
 fsm = myFSM()
 fsm.add_state("START", state_start_handler)

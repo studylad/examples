@@ -4,10 +4,7 @@ import random
 
 def biasedcoin():
     b = random.randint(1,10)
-    if b > 7:
-        return 1
-    else:
-        return 0
+    return 1 if b > 7 else 0
 
 # This works because the chance of getting a BIASED result and then an UNBIASED result
 # is the same as getting an UNBIASED result and then a BIASED result
@@ -25,7 +22,7 @@ def unbiasedcoin():
 print("BIASED")
 count0 = 0
 count1 = 0
-for x in range(1000):
+for _ in range(1000):
     b = biasedcoin()
     if b == 1:
         count1 = count1 + 1
@@ -39,7 +36,7 @@ print("Count1 is", count1)
 print("UNBIASED")
 count0 = 0
 count1 = 0
-for x in range(1000):
+for _ in range(1000):
     b = unbiasedcoin()
     if b == 1:
         count1 = count1 + 1

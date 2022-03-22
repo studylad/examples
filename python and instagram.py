@@ -25,10 +25,7 @@ def rotate_by_exif(image):
 
 
 def isLandscape(w, h):
-    if(w > h):
-        return True
-    else:
-        return False
+    return w > h
 
 # Trim to 1:1
 def trim_to_sq(im):
@@ -84,11 +81,11 @@ if(len(sys.argv)!=2):
 #
 infile = sys.argv[1]
 root, ext = os.path.splitext(infile)
-outfiletrim = root + "_sqtrim" + ext
-outfileblur = root + "_sqblur" + ext
-outfilef1 = root + "_sqf1" + ext
-outfilef2 = root + "_sqf2" + ext
-outfilef3 = root + "_sqf3" + ext
+outfiletrim = f'{root}_sqtrim{ext}'
+outfileblur = f'{root}_sqblur{ext}'
+outfilef1 = f'{root}_sqf1{ext}'
+outfilef2 = f'{root}_sqf2{ext}'
+outfilef3 = f'{root}_sqf3{ext}'
 
 # Open the file and print its size
 im = Image.open(infile)

@@ -43,15 +43,15 @@ def update():
         boxes = []
         clock.unschedule(add_box)
         clock.schedule_unique(reset_game, 1.0)
-    
+
     boxes_to_remove = []
     for i in range(len(boxes)):
         boxes[i].y = boxes[i].y + 2
         if boxes[i].y > HEIGHT:
             boxes_to_remove.append(i)
-            
-    for i in range(len(boxes_to_remove)):
-        boxes.pop(boxes_to_remove[i])
+
+    for item in boxes_to_remove:
+        boxes.pop(item)
 
 def reset_game():
     global boxes

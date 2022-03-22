@@ -44,32 +44,32 @@ def nextprimecandidate():
         global sixn
         global sixplusorminus
 
-        if(sixplusorminus == -1):
+        if (sixplusorminus == -1):
                 pc = (6 * sixn) - 1
                 sixplusorminus = 1
-                return pc
         else:
                 pc = (6 * sixn) + 1
                 sixn = sixn + 1
                 sixplusorminus = -1
-                return pc
+
+        return pc
 
 def isPrimeTrialDiv(num):
-    # Returns True if num is a prime number, otherwise False.
-    # Uses the trial division algorithm for testing primality.
-    # All numbers less than 2 are not prime:
-    if num < 2:
-        return False
+        # Returns True if num is a prime number, otherwise False.
+        # Uses the trial division algorithm for testing primality.
+        # All numbers less than 2 are not prime:
+        if num < 2:
+            return False
 
-    # See if num is divisible by any number up to the square root of num:
-    i = 2
-    lim = int(math.sqrt(num)) + 1
-    while i < lim:
-        if num % i == 0:
-                return False
-        i = i + 1
+        # See if num is divisible by any number up to the square root of num:
+        i = 2
+        lim = int(math.sqrt(num)) + 1
+        while i < lim:
+                if num % i == 0:
+                        return False
+                i += 1
 
-    return True
+        return True
 
 
 mylist = []
