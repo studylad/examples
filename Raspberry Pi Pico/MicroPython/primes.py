@@ -43,10 +43,8 @@ def is_prime(n: int) -> bool:
         i += 6
     return True
 
-p = 1
-while p < 1000000:
+for p in range(1, 1000000):
     if is_prime(p):
         oled.fill_rect(5,25,80,8,0)
         oled.text(str(p),5,25)
         oled.show()
-    p = p + 1

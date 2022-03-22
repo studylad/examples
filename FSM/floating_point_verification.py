@@ -18,8 +18,7 @@ class myFSM:
         state = "START"
         err = ""
         while True:
-            if(len(cargo) > 0):
-                # Get next token (i.e. character) and remove it from the string
+            if (len(cargo) > 0):
                 token = cargo[0]
                 cargo = cargo[1:]
                 found = False
@@ -29,25 +28,22 @@ class myFSM:
                         state = tn.next_state
                         found = True
                         break
-                        
+
                 if not found:
                     #Token not found, switch to ERROR state
-                    err = "Got " + token + " in state " + state
-                    state = "ERROR"                    
-            else:
-                # No more characters left
-                # * in the state name means it is a valid place to end
-                if '*' in state:
-                    state = "GOOD"
-                else:
-                    err = "More needed."
+                    err = f"Got {token} in state {state}"
                     state = "ERROR"
-                    
+            elif '*' in state:
+                state = "GOOD"
+            else:
+                err = "More needed."
+                state = "ERROR"
+
             if state == "GOOD":
-                print(orig_num + " is good.")
+                print(f'{orig_num} is good.')
                 break
             if state == "ERROR":
-                print(orig_num + " is bad: " + err)
+                print(f'{orig_num} is bad: {err}')
                 break
 
 fsm = myFSM()

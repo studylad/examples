@@ -46,7 +46,7 @@ def isPrimeTrialDiv(num):
     while i < lim:
         if num % i == 0:
                 return False
-        i = i + 1
+        i += 1
 
     return True
 
